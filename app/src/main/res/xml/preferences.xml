@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_cate_action">
+        <ListPreference
+            android:key="action_click"
+            android:title="@string/pref_action_click"
+            android:defaultValue="0"
+            android:entries="@array/pref_action"
+            android:entryValues="@array/pref_action_value" />
+        <ListPreference
+            android:key="action_longclick"
+            android:title="@string/pref_action_longclick"
+            android:defaultValue="1"
+            android:entries="@array/pref_action"
+            android:entryValues="@array/pref_action_value" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_cate_other">
+        <SwitchPreference
+            android:key="hide_share"
+            android:title="@string/pref_hide_share" />
+        <SwitchPreference
+            android:key="hide_launcher"
+            android:title="@string/pref_hide_launcher" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_cate_about">
+        <Preference
+            android:key="version_code"
+            android:title="@string/pref_version_code" />
+    </PreferenceCategory>
+</PreferenceScreen>
