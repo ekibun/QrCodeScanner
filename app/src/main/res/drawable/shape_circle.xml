@@ -1,0 +1,5 @@
+<!--设置圆角矩形（其他形状还有圆形：android:shape="oval"，矩形等）-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@android:color/black" />
+</shape>

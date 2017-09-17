@@ -1,27 +1,27 @@
 <resources>
-    <string name="app_name">扫一扫</string>
+    <string name="app_name">ScanQrCode</string>
 
     <!--相机页-->
-    <string name="frame_info">将二维码放入框中，即可自动扫描</string>
-    <string name="scan_wechat">微信扫一扫</string>
-    <string name="scan_alipay">支付宝扫一扫</string>
+    <string name="frame_info">Align the QRcode within the frame to scan</string>
+    <string name="scan_wechat">WeChat Scanner</string>
+    <string name="scan_alipay">Alipay Scanner</string>
 
     <!--结果页-->
-    <string name="result_copy">复制</string>
-    <string name="result_share">分享</string>
-    <string name="result_open">打开</string>
+    <string name="result_copy">Copy</string>
+    <string name="result_share">Share</string>
+    <string name="result_open">Open</string>
 
     <!--设置页-->
-    <string name="pref_cate_action">磁贴动作</string>
-    <string name="pref_action_click">单击动作</string>
-    <string name="pref_action_longclick">长按动作</string>
+    <string name="pref_cate_action">Quick Setting Tile Action</string>
+    <string name="pref_action_click">Cilck</string>
+    <string name="pref_action_longclick">Press</string>
     <string-array name="pref_action">
-        <item>相机扫描</item>
-        <item>屏幕扫描</item>
-        <item>微信扫一扫</item>
-        <item>支付宝扫一扫</item>
-        <item>打开设置</item>
-        <item>从图库选择</item>
+        <item>Scan Camera</item>
+        <item>Scan Screen</item>
+        <item>WeChat Scanner</item>
+        <item>Alipay Scanner</item>
+        <item>Open Settings</item>
+        <item>Open Gallery</item>
     </string-array>
     <string-array name="pref_action_value">
         <item>0</item>
@@ -31,20 +31,22 @@
         <item>4</item>
         <item>5</item>
     </string-array>
-    <string name="pref_cate_other">其他</string>
-    <string name="pref_hide_share">从分享列表隐藏</string>
-    <string name="pref_hide_launcher">隐藏启动器图标</string>
-    <string name="pref_cate_about">关于</string>
-    <string name="pref_version_code">版本号</string>
+    <string name="pref_cate_other">Miscellaneous</string>
+    <string name="pref_hide_share">Hide from Share List</string>
+    <string name="pref_hide_launcher">Hide from Launcher</string>
+    <string name="pref_cate_about">About</string>
+    <string name="pref_version_code">Version</string>
 
     <!--关于页-->
-    <string name="about_dialog_title">关于</string>
-    <string name="about_dialog_message">从磁贴打开扫一扫/扫描屏幕二维码\n分享图片自动扫描二维码</string>
-    <string name="about_dialog_button">确定</string>
+    <string name="about_dialog_title">About</string>
+    <string name="about_dialog_message">Cilck Quick Setting Tile to scan QRcode from camera/Screen\nAutomatically scan Share/Open Image\n\nOpen Source Licenses\nzxing:APL 2.0</string>
+    <string name="about_dialog_support">Donate</string>
+    <string name="about_dialog_github">GitHub</string>
+    <string name="about_dialog_button">OK</string>
 
-    <string name="toast_no_wechat">未安装微信</string>
-    <string name="toast_no_alipay">未安装支付宝</string>
-    <string name="toast_copied">已复制%s到剪贴板</string>
-    <string name="toast_no_result">未检测到二维码</string>
-    <string name="toast_no_permit">缺少权限</string>
+    <string name="toast_no_wechat">Cannot find WeChat</string>
+    <string name="toast_no_alipay">Cannot find Alipay</string>
+    <string name="toast_copied">Finish copy %s to Clipboard</string>
+    <string name="toast_no_result">Cannot find QRcode</string>
+    <string name="toast_no_permit">Missing permissions</string>
 </resources>

@@ -9,7 +9,6 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
-import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
@@ -70,7 +69,6 @@ public class ScreenCapture {
         }
     }
 
-    @Nullable
     public Bitmap capture(){
         if(mImageReader==null)
             return null;

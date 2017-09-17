@@ -2,6 +2,7 @@ package com.inklin.qrcodescanner.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -15,7 +16,9 @@ import com.google.zxing.Result;
 import com.inklin.qrcodescanner.R;
 import com.inklin.qrcodescanner.zxing.Decoder;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 
 /**
  * Created by acaoa on 2017/8/17.
@@ -25,7 +28,9 @@ public class ImageUtils {
 
     public static Bitmap getBitmapFromUri(Uri uri, Context context){
         try {
-            return MediaStore.Images.Media.getBitmap(context.getContentResolver(), uri);
+            InputStream input = context.getContentResolver().openInputStream(uri);
+            return BitmapFactory.decodeStream(new BufferedInputStream(input));
+            //return MediaStore.Images.Media.getBitmap(context.getContentResolver(), uri);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,33 +1,46 @@
 package com.inklin.qrcodescanner;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
+//import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import com.google.zxing.Result;
 import com.inklin.qrcodescanner.utils.ApplicationUtils;
 import com.inklin.qrcodescanner.zxing.DecodeThread;
 import com.inklin.qrcodescanner.zxing.Decoder;
 
 public class CameraActivity extends Activity implements Camera.PreviewCallback {
+    public static final int REQUEST_CAMERA_PERMISSIONS = 1;
 
     private CameraView cameraView;
     public CameraActivity context;
     Rect crop = new Rect();
 
+    public boolean requireResult = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if("com.google.zxing.client.android.SCAN".equals(getIntent().getAction()))
+            requireResult = true;
+        if (Build.VERSION.SDK_INT > 23 && !(this.checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED))
+            this.requestPermissions(new String[] { Manifest.permission.CAMERA }, REQUEST_CAMERA_PERMISSIONS);
+
         this.context = this;
         setContentView(R.layout.activity_camera);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
@@ -35,10 +48,21 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
         initView();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CAMERA_PERMISSIONS) {
+            if (!(grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                Toast.makeText(this, R.string.toast_no_permit, Toast.LENGTH_SHORT).show();
+                this.finish();
+            }
+        }
+    }
+
     boolean flashlight = false;
-    private FloatingActionButton initFab(){
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
-        fab.setBackgroundTintList(ColorStateList.valueOf(getColor(
+    private ImageView initFab(){
+        ImageView fab = (ImageView)findViewById(R.id.floatingActionButton);
+        fab.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(
                 flashlight? R.color.colorPrimary : android.R.color.black)));
         return fab;
     }
@@ -49,8 +73,8 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
                 if(cameraView != null){
                     flashlight = !flashlight;
                     cameraView.setFlashLight(flashlight);;
-                    v.setBackgroundTintList(ColorStateList.valueOf(getColor(
-                            flashlight? R.color.colorPrimary : android.R.color.black)));
+                    v.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(
+                            flashlight ? R.color.colorPrimary : android.R.color.black)));
                 }
             }
         });
@@ -83,7 +107,7 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
         getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         view = findViewById(R.id.scan_frame);
         ViewGroup.LayoutParams lp = view.getLayoutParams();
-        lp.width = rect.width() * 4 / 7;
+        lp.width = rect.width() * 5 / 8;
         lp.height = lp.width;
         view.setLayoutParams(lp);
         view = findViewById(R.id.mask_status);
@@ -147,7 +171,10 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case Decoder.DECODE_SUCCESS:
-                    ApplicationUtils.handleResult(context, (Bundle) message.obj);
+                    if(requireResult)
+                        handleResult(((Bundle) message.obj).getString(Decoder.BARCODE_RESULT,""));
+                    else
+                        ApplicationUtils.handleResult(context, (Bundle) message.obj);
                     break;
                 case Decoder.DECODE_FAILED:
                     requestFrame();
@@ -155,6 +182,16 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
             }
         }
     };
+
+    private void handleResult(String result){
+        Bundle data = new Bundle();
+        Intent intent = new Intent(getIntent().getAction());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        intent.putExtra("SCAN_RESULT", result);
+        intent.putExtra("SCAN_RESULT_FORMAT", "utf-8");
+        setResult(Activity.RESULT_OK,intent);
+        this.finish();
+    }
 
     @Override
     protected void onResume(){
@@ -169,5 +206,11 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
     protected void onPause() {
         super.onPause();
         cameraView.releaseCamera();              // release the camera immediately on pause event
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        this.finish();
     }
 }

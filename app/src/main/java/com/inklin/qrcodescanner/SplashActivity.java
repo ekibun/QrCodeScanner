@@ -13,4 +13,10 @@ public class SplashActivity extends Activity {
         ApplicationUtils.openSettings(this);
         this.finish();
     }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }

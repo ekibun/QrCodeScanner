@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">扫一扫</string>
+
+    <!--相机页-->
+    <string name="frame_info">将二维码放入框内，即可自动扫描</string>
+    <string name="scan_wechat">微信扫一扫</string>
+    <string name="scan_alipay">支付宝扫一扫</string>
+
+    <!--结果页-->
+    <string name="result_copy">复制</string>
+    <string name="result_share">分享</string>
+    <string name="result_open">打开</string>
+
+    <!--设置页-->
+    <string name="pref_cate_action">磁贴动作</string>
+    <string name="pref_action_click">单击动作</string>
+    <string name="pref_action_longclick">长按动作</string>
+    <string-array name="pref_action">
+        <item>相机扫描</item>
+        <item>屏幕扫描</item>
+        <item>微信扫一扫</item>
+        <item>支付宝扫一扫</item>
+        <item>打开设置</item>
+        <item>从图库选择</item>
+    </string-array>
+    <string-array name="pref_action_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="pref_cate_other">杂项</string>
+    <string name="pref_hide_share">从分享列表隐藏</string>
+    <string name="pref_hide_launcher">隐藏启动器图标</string>
+    <string name="pref_cate_about">关于</string>
+    <string name="pref_version_code">版本号</string>
+
+    <!--关于页-->
+    <string name="about_dialog_title">关于</string>
+    <string name="about_dialog_message">从磁贴打开并扫描相机/屏幕二维码\n分享/打开图片自动扫描二维码\n\nOpen Source Licenses\nzxing:APL 2.0</string>
+    <string name="about_dialog_support">打赏</string>
+    <string name="about_dialog_github">GitHub</string>
+    <string name="about_dialog_button">确定</string>
+
+    <string name="toast_no_wechat">未安装微信</string>
+    <string name="toast_no_alipay">未安装支付宝</string>
+    <string name="toast_copied">已复制%s到剪贴板</string>
+    <string name="toast_no_result">未检测到二维码</string>
+    <string name="toast_no_permit">缺少权限</string>
+</resources>

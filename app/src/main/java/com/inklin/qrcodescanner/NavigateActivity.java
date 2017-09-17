@@ -10,8 +10,7 @@ import android.media.projection.MediaProjectionManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.provider.DocumentsContract;
 import android.widget.Toast;
 
 import com.inklin.qrcodescanner.utils.ApplicationUtils;
@@ -20,7 +19,7 @@ import com.inklin.qrcodescanner.zxing.Decoder;
 
 
 public class NavigateActivity extends Activity {
-    public static final int REQUEST_CAMERA_PERMISSIONS = 1;
+    //public static final int REQUEST_CAMERA_PERMISSIONS = 1;
     public static final int REQUEST_CAPTURE_CODE = 2;
     public static final int REQUEST_PHOTO_GALLERY = 3;
 
@@ -82,16 +81,16 @@ public class NavigateActivity extends Activity {
     }
 
     private boolean openCamera(){
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        //if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent(this, CameraActivity.class);
             this.startActivity(intent);
             return true;
-        }else
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA }, REQUEST_CAMERA_PERMISSIONS);
-        return false;
+       //}else
+        //    ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA }, REQUEST_CAMERA_PERMISSIONS);
+        //return false;
     }
 
-
+/*
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -105,6 +104,7 @@ public class NavigateActivity extends Activity {
         }
         this.finish();
     }
+    */
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

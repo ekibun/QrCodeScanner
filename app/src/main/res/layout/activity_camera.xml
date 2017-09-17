@@ -63,9 +63,11 @@
                 android:background="@color/cameraMask"
                 android:textColor="@android:color/white"
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="@string/frame_info" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -99,35 +101,39 @@
         android:layout_below="@+id/mask_status"
         android:padding="6dp"
         android:background="@android:color/transparent">
-        <FrameLayout
+        <ImageView
             android:id="@+id/gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:padding="6dp"
             android:layout_margin="6dp"
+            android:src="@drawable/ic_image"
             android:background="@drawable/ripple_circle"
-            android:clickable="true">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_image" />
-        </FrameLayout>
-        <FrameLayout
+            android:clickable="true" />
+        <ImageView
             android:id="@+id/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:padding="6dp"
             android:layout_margin="6dp"
+            android:src="@drawable/ic_settings"
             android:background="@drawable/ripple_circle"
-            android:clickable="true">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_settings" />
-        </FrameLayout>
+            android:clickable="true" />
     </LinearLayout>
 
-
+   <ImageView
+       android:id="@+id/floatingActionButton"
+       android:layout_width="56dp"
+       android:layout_height="56dp"
+       android:background="@drawable/shape_circle"
+       android:padding="15dp"
+       android:elevation="6dp"
+       android:layout_above="@id/actions"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="-30dp"
+       android:clickable="true"
+       android:src="@drawable/ic_light"/>
+    <!--
     <android.support.design.widget.FloatingActionButton
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/floatingActionButton"
@@ -140,5 +146,5 @@
         app:fabSize="normal"
         app:backgroundTint="@android:color/black"
         app:rippleColor="@color/transparent"
-        app:srcCompat="@drawable/ic_light" />
+        app:srcCompat="@drawable/ic_light" />-->
 </RelativeLayout>

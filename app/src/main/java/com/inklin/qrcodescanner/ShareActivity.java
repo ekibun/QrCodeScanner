@@ -24,4 +24,10 @@ public class ShareActivity extends Activity {
             Decoder.scanBitmap(ImageUtils.getBitmapFromUri(uri, this), this);
         this.finish();
     }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }

@@ -73,6 +73,12 @@ public class ResultActivity extends Activity {
         });
     }
 
+    @Override
+    public void onStop(){
+        super.onStop();
+        this.finish();
+    }
+
     private void copy(){
         ClipboardManager cmb = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("QrCode", result);

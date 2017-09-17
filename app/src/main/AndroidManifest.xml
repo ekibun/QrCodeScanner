@@ -16,8 +16,13 @@
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:permission="android.permission.CAMERA"
-            android:theme="@style/AppTheme.Fullscreen" />
+            android:theme="@style/AppTheme.Fullscreen">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ResultActivity"
             android:autoRemoveFromRecents="true"
@@ -58,7 +63,6 @@
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:icon="@drawable/ic_tile"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -87,6 +91,37 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".open.OpenCameraActivity"
+            android:icon="@drawable/ic_tile"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent"/>
+        <activity
+            android:name=".open.OpenCaptureActivity"
+            android:icon="@drawable/ic_tile"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent"/>
+        <activity
+            android:name=".open.OpenWechatActivity"
+            android:icon="@drawable/ic_tile"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent"/>
+        <activity
+            android:name=".open.OpenAlipayActivity"
+            android:icon="@drawable/ic_tile"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent"/>
+        <activity
+            android:name=".open.OpenGalleryActivity"
+            android:icon="@drawable/ic_tile"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent"/>
     </application>
 
 </manifest>
