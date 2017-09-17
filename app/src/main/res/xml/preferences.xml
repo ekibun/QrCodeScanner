@@ -16,6 +16,9 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_cate_other">
         <SwitchPreference
+            android:key="open_direct"
+            android:title="@string/pref_open_direct" />
+        <SwitchPreference
             android:key="hide_share"
             android:title="@string/pref_hide_share" />
         <SwitchPreference

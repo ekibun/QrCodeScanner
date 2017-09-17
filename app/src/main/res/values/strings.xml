@@ -15,13 +15,20 @@
     <string name="pref_cate_action">Quick Setting Tile Action</string>
     <string name="pref_action_click">Cilck</string>
     <string name="pref_action_longclick">Press</string>
+
+    <string name="pref_action_camera">Scan Camera</string>
+    <string name="pref_action_screen">Scan Screen</string>
+    <string name="pref_action_wechat">WeChat Scanner</string>
+    <string name="pref_action_alipay">Alipay Scanner</string>
+    <string name="pref_action_settings">Open Settings</string>
+    <string name="pref_action_gallery">Open Gallery</string>
     <string-array name="pref_action">
-        <item>Scan Camera</item>
-        <item>Scan Screen</item>
-        <item>WeChat Scanner</item>
-        <item>Alipay Scanner</item>
-        <item>Open Settings</item>
-        <item>Open Gallery</item>
+        <item>@string/pref_action_camera</item>
+        <item>@string/pref_action_screen</item>
+        <item>@string/pref_action_wechat</item>
+        <item>@string/pref_action_alipay</item>
+        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_gallery</item>
     </string-array>
     <string-array name="pref_action_value">
         <item>0</item>
@@ -32,6 +39,7 @@
         <item>5</item>
     </string-array>
     <string name="pref_cate_other">Miscellaneous</string>
+    <string name="pref_open_direct">Open directly</string>
     <string name="pref_hide_share">Hide from Share List</string>
     <string name="pref_hide_launcher">Hide from Launcher</string>
     <string name="pref_cate_about">About</string>

@@ -35,6 +35,7 @@ public class CaptureService extends Service {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    long time = System.currentTimeMillis();
                     Bitmap bmp = null;
                     while(bmp == null){
                         try {
@@ -42,6 +43,9 @@ public class CaptureService extends Service {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        //超时
+                        if(System.currentTimeMillis() - time > 10000)
+                            return;
                         bmp = screenCapture.capture();
                     }
                     Looper.prepare();

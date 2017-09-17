@@ -5,12 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.inklin.qrcodescanner.NavigateActivity;
 import com.inklin.qrcodescanner.PreferencesActivity;
 import com.inklin.qrcodescanner.R;
 import com.inklin.qrcodescanner.ResultActivity;
+import com.inklin.qrcodescanner.zxing.Decoder;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -50,7 +52,17 @@ public class ApplicationUtils {
     }
 
     public static void handleResult(Context context, Bundle bundle){
-        context.startActivity(new Intent(context, ResultActivity.class).putExtras(bundle));
+        if(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("open_direct", false)){
+            try{
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(bundle.getString(Decoder.BARCODE_RESULT)));
+                context.startActivity(Intent.createChooser(intent, ""));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else
+            context.startActivity(new Intent(context, ResultActivity.class).putExtras(bundle));
     }
 
     public static void openSettings(Context context){

@@ -15,13 +15,20 @@
     <string name="pref_cate_action">磁贴动作</string>
     <string name="pref_action_click">单击动作</string>
     <string name="pref_action_longclick">长按动作</string>
+
+    <string name="pref_action_camera">扫描相机</string>
+    <string name="pref_action_screen">扫描屏幕</string>
+    <string name="pref_action_wechat">微信扫一扫</string>
+    <string name="pref_action_alipay">支付宝扫一扫</string>
+    <string name="pref_action_settings">打开设置</string>
+    <string name="pref_action_gallery">从图库选择</string>
     <string-array name="pref_action">
-        <item>相机扫描</item>
-        <item>屏幕扫描</item>
-        <item>微信扫一扫</item>
-        <item>支付宝扫一扫</item>
-        <item>打开设置</item>
-        <item>从图库选择</item>
+        <item>@string/pref_action_camera</item>
+        <item>@string/pref_action_screen</item>
+        <item>@string/pref_action_wechat</item>
+        <item>@string/pref_action_alipay</item>
+        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_gallery</item>
     </string-array>
     <string-array name="pref_action_value">
         <item>0</item>
@@ -32,6 +39,7 @@
         <item>5</item>
     </string-array>
     <string name="pref_cate_other">杂项</string>
+    <string name="pref_open_direct">直接打开</string>
     <string name="pref_hide_share">从分享列表隐藏</string>
     <string name="pref_hide_launcher">隐藏启动器图标</string>
     <string name="pref_cate_about">关于</string>
