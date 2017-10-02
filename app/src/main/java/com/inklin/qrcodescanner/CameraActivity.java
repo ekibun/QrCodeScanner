@@ -2,11 +2,16 @@ package com.inklin.qrcodescanner;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
 import android.hardware.Camera;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +28,7 @@ import com.inklin.qrcodescanner.utils.ApplicationUtils;
 import com.inklin.qrcodescanner.zxing.DecodeThread;
 import com.inklin.qrcodescanner.zxing.Decoder;
 
-public class CameraActivity extends Activity implements Camera.PreviewCallback {
+public class CameraActivity extends Activity implements Camera.PreviewCallback, SensorEventListener {
     public static final int REQUEST_CAMERA_PERMISSIONS = 1;
 
     private CameraView cameraView;
@@ -32,9 +37,43 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
 
     public boolean requireResult = false;
 
+    private SensorManager mSensorManager;
+    private Sensor mAccel;
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {}
+    private float mLastX = 0;
+    private float mLastY = 0;
+    private float mLastZ = 0;
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        float x = event.values[0];
+        float y = event.values[1];
+        float z = event.values[2];
+        float deltaX  = Math.abs(mLastX - x);
+        float deltaY = Math.abs(mLastY - y);
+        float deltaZ = Math.abs(mLastZ - z);
+
+        if (deltaX > .5 || deltaY > .5 || deltaZ > .5){ //AUTOFOCUS (while it is not autofocusing) */
+            if(cameraView!=null)
+                cameraView.focus(-1,-1);//mAutoFocus = false;
+            //mPreview.setCameraFocus(myAutoFocusCallback);
+        }
+
+        mLastX = x;
+        mLastY = y;
+        mLastZ = z;
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mSensorManager = (SensorManager) getSystemService(Context.
+                SENSOR_SERVICE);
+        mAccel = mSensorManager.getDefaultSensor(Sensor.
+                TYPE_ACCELEROMETER);
 
         if("com.google.zxing.client.android.SCAN".equals(getIntent().getAction()))
             requireResult = true;
@@ -196,6 +235,7 @@ public class CameraActivity extends Activity implements Camera.PreviewCallback {
     @Override
     protected void onResume(){
         super.onResume();
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_UI);
         cameraView.loadCamera();
         flashlight = false;
         initFab();

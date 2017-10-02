@@ -54,7 +54,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
         if(camera == null)
             return false;
         if (event.getPointerCount() == 1) {
-            CameraUtils.handleFocusMetering(event, camera, getWidth(), getHeight());
+            focus(event.getX(), event.getY());//CameraUtils.handleFocusMetering(event.getX(), event.getY(), camera, getWidth(), getHeight());
         } else {
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_POINTER_DOWN:
@@ -70,6 +70,16 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
         return true;
+    }
+
+    public void focus(float x, float y){
+        if(getWidth() == 0 || getHeight() == 0)
+            return;
+        if(x == -1)
+            x = getWidth()/2;
+        if(y == -1)
+            y = getHeight()/2;
+        CameraUtils.handleFocusMetering(x, y, camera, getWidth(), getHeight());
     }
 
     private static float getFingerSpacing(MotionEvent event) {

@@ -70,9 +70,11 @@ public class CameraUtils {
         }
     }
 
-    public static void handleFocusMetering(MotionEvent event, Camera camera, int width, int height) {
-        Rect focusRect = calculateTapArea(event.getX(), event.getY(), 1f, width, height);
-        Rect meteringRect = calculateTapArea(event.getX(), event.getY(), 1.5f, width, height);
+    public static void handleFocusMetering(float x, float y, Camera camera, int width, int height) {
+        if(camera == null)
+            return;
+        Rect focusRect = calculateTapArea(x, y, 1f, width, height);
+        Rect meteringRect = calculateTapArea(x, y, 1.5f, width, height);
 
         camera.cancelAutoFocus();
         Camera.Parameters params = camera.getParameters();
