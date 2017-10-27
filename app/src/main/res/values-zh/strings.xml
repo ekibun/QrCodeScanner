@@ -22,13 +22,17 @@
     <string name="pref_action_alipay">支付宝扫一扫</string>
     <string name="pref_action_settings">打开设置</string>
     <string name="pref_action_gallery">从图库选择</string>
+    <string name="pref_action_alipay_pay">支付宝付款码</string>
+    <string name="pref_action_menu">选择菜单</string>
     <string-array name="pref_action">
         <item>@string/pref_action_camera</item>
         <item>@string/pref_action_screen</item>
         <item>@string/pref_action_wechat</item>
         <item>@string/pref_action_alipay</item>
-        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_alipay_pay</item>
         <item>@string/pref_action_gallery</item>
+        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_menu</item>
     </string-array>
     <string-array name="pref_action_value">
         <item>0</item>
@@ -37,6 +41,8 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
     <string name="pref_cate_other">杂项</string>
     <string name="pref_open_direct">直接打开</string>

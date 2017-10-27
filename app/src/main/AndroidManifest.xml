@@ -52,6 +52,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".PreferencesActivity"
@@ -93,58 +95,68 @@
         </service>
 
         <activity
-            android:label="@string/pref_action_camera"
             android:name=".open.OpenCameraActivity"
-            android:icon="@drawable/ic_tile"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_camera"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="inklin.OpenCameraActivity" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/pref_action_screen"
             android:name=".open.OpenCaptureActivity"
-            android:icon="@drawable/ic_tile"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_screen"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="inklin.OpenCaptureActivity" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/pref_action_wechat"
             android:name=".open.OpenWechatActivity"
-            android:icon="@drawable/ic_tile"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_wechat"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="inklin.OpenWechatActivity" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/pref_action_alipay"
             android:name=".open.OpenAlipayActivity"
-            android:icon="@drawable/ic_tile"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_alipay"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="inklin.OpenAlipayActivity" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/pref_action_gallery"
             android:name=".open.OpenGalleryActivity"
-            android:icon="@drawable/ic_tile"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_gallery"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
                 <action android:name="inklin.OpenGalleryActivity" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".open.OpenAliPaymentActivity"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/ic_tile"
+            android:label="@string/pref_action_alipay_pay"
+            android:theme="@style/AppTheme.Transparent">
+            <intent-filter>
+                <action android:name="inklin.OpenAliPaymentActivity" />
             </intent-filter>
         </activity>
     </application>

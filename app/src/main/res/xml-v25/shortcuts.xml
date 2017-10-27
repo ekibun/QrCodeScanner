@@ -1,0 +1,100 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="open_wechat"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_wechat"
+        android:shortcutLongLabel="@string/pref_action_wechat"
+        android:shortcutDisabledMessage="@string/pref_action_wechat">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenWechatActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open_alipay"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_alipay"
+        android:shortcutLongLabel="@string/pref_action_alipay"
+        android:shortcutDisabledMessage="@string/pref_action_alipay">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenAlipayActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open_alipay_pay"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_alipay_pay"
+        android:shortcutLongLabel="@string/pref_action_alipay_pay"
+        android:shortcutDisabledMessage="@string/pref_action_alipay_pay">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenAliPaymentActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open_gallery"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_gallery"
+        android:shortcutLongLabel="@string/pref_action_gallery"
+        android:shortcutDisabledMessage="@string/pref_action_gallery">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenGalleryActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open_camera"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_camera"
+        android:shortcutLongLabel="@string/pref_action_camera"
+        android:shortcutDisabledMessage="@string/pref_action_camera">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenCameraActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open_screen"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/pref_action_screen"
+        android:shortcutLongLabel="@string/pref_action_screen"
+        android:shortcutDisabledMessage="@string/pref_action_screen">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.inklin.qrcodescanner"
+            android:targetClass="com.inklin.qrcodescanner.open.OpenCaptureActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

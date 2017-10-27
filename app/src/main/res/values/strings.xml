@@ -13,7 +13,7 @@
 
     <!--设置页-->
     <string name="pref_cate_action">Quick Setting Tile Action</string>
-    <string name="pref_action_click">Cilck</string>
+    <string name="pref_action_click">Click</string>
     <string name="pref_action_longclick">Press</string>
 
     <string name="pref_action_camera">Scan Camera</string>
@@ -22,13 +22,17 @@
     <string name="pref_action_alipay">Alipay Scanner</string>
     <string name="pref_action_settings">Open Settings</string>
     <string name="pref_action_gallery">Open Gallery</string>
+    <string name="pref_action_alipay_pay">Alipay Payment Code</string>
+    <string name="pref_action_menu">Show Menu</string>
     <string-array name="pref_action">
         <item>@string/pref_action_camera</item>
         <item>@string/pref_action_screen</item>
         <item>@string/pref_action_wechat</item>
         <item>@string/pref_action_alipay</item>
-        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_alipay_pay</item>
         <item>@string/pref_action_gallery</item>
+        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_menu</item>
     </string-array>
     <string-array name="pref_action_value">
         <item>0</item>
@@ -37,6 +41,8 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
     <string name="pref_cate_other">Miscellaneous</string>
     <string name="pref_open_direct">Open directly</string>

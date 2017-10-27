@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.inklin.qrcodescanner"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 8
-        versionName "0.1.5"
+        versionCode 10
+        versionName "0.2.-1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

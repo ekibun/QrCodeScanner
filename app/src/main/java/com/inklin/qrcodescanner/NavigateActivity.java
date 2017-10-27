@@ -2,10 +2,13 @@ package com.inklin.qrcodescanner;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.media.projection.MediaProjectionManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +19,9 @@ import android.widget.Toast;
 import com.inklin.qrcodescanner.utils.ApplicationUtils;
 import com.inklin.qrcodescanner.utils.ImageUtils;
 import com.inklin.qrcodescanner.zxing.Decoder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class NavigateActivity extends Activity {
@@ -28,44 +34,79 @@ public class NavigateActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         if(intent.hasExtra("action")){
-            runAction(intent.getIntExtra("action", 0), this);
+            runAction(intent.getIntExtra("action", 0));
         }
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         //单击
         if(intent.hasExtra("click")){
-            runAction(Integer.parseInt(sp.getString("action_click", "0")), this);
+            runAction(Integer.parseInt(sp.getString("action_click", "0")));
         }
         //长按
         if("android.service.quicksettings.action.QS_TILE_PREFERENCES".equals(intent.getAction())){
-            runAction(Integer.parseInt(sp.getString("action_longclick", "1")), this);
+            runAction(Integer.parseInt(sp.getString("action_longclick", "1")));
         }
     }
 
-    public void runAction(int action, Activity context){
+    boolean flag_result = false;
+    public void runAction(int action){
         switch (action){
             case 0:
                 if(openCamera())
                     this.finish();
                 break;
             case 1:
+                flag_result = true;
                 openScreenShot();
                 break;
             case 2:
-                ApplicationUtils.openWechat(context);
+                ApplicationUtils.openWechat(this);
                 this.finish();
                 break;
             case 3:
-                ApplicationUtils.openAlipay(context);
+                ApplicationUtils.openAlipay(this);
                 this.finish();
                 break;
-            case 4:
-                ApplicationUtils.openSettings(context);
+            case 6:
+                ApplicationUtils.openSettings(this);
                 this.finish();
                 break;
             case 5:
+                flag_result = true;
                 openGallery();
                 break;
+            case 4:
+                ApplicationUtils.openAliPayment(this);
+                this.finish();
+                break;
+            case 7:
+                openMenu();
+                break;
         }
+    }
+
+    private void openMenu(){
+        ArrayList<String> al = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.pref_action)));
+        al.remove(al.size() - 1);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setItems(al.toArray(new String[1]), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                runAction(which);
+            }
+        });
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                finishMe();
+            }
+        });
+        builder.show();
+    }
+
+    private void finishMe(){
+        if(!flag_result)
+            this.finish();
     }
 
     private void openGallery(){

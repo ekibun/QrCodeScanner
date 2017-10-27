@@ -104,4 +104,17 @@ public class ApplicationUtils {
         }
         return false;
     }
+
+    public static boolean openAliPayment(Context context){
+        try {
+            Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=20000056");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            Toast.makeText(context, context.getString(R.string.toast_no_alipay), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
