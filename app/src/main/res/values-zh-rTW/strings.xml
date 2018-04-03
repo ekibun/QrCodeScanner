@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ScanQrCode</string>
+    <string name="app_name">掃描 QR 碼</string>
 
     <!--相機頁面-->
     <string name="frame_info">QR 碼在方框內便可掃描</string>
