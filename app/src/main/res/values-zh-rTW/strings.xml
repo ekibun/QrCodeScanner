@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">掃描 QR 碼</string>
+
+    <!--相機頁面-->
+    <string name="frame_info">QR 碼在方框內便可掃描</string>
+    <string name="scan_wechat">WeChat 掃瞄器</string>
+    <string name="scan_alipay">支付寶掃瞄器</string>
+
+    <!--結果頁面-->
+    <string name="result_copy">複製</string>
+    <string name="result_share">分享</string>
+    <string name="result_open">開啟</string>
+
+    <!--設定頁面-->
+    <string name="pref_cate_action">快速設定磚動作</string>
+    <string name="pref_action_click">點選</string>
+    <string name="pref_action_longclick">按住</string>
+
+    <string name="pref_action_camera">掃描相機</string>
+    <string name="pref_action_screen">掃描螢幕</string>
+    <string name="pref_action_wechat">WeChat 掃瞄器</string>
+    <string name="pref_action_alipay">支付寶掃瞄器</string>
+    <string name="pref_action_settings">開啟設定</string>
+    <string name="pref_action_gallery">開啟相簿</string>
+    <string name="pref_action_alipay_pay">支付寶付款代碼</string>
+    <string name="pref_action_menu">顯示選單</string>
+    <string-array name="pref_action">
+        <item>@string/pref_action_camera</item>
+        <item>@string/pref_action_screen</item>
+        <item>@string/pref_action_wechat</item>
+        <item>@string/pref_action_alipay</item>
+        <item>@string/pref_action_alipay_pay</item>
+        <item>@string/pref_action_gallery</item>
+        <item>@string/pref_action_settings</item>
+        <item>@string/pref_action_menu</item>
+    </string-array>
+    <string-array name="pref_action_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string name="pref_cate_other">雜項</string>
+    <string name="pref_open_direct">直接開啟</string>
+    <string name="pref_hide_share">自分享清單隱藏</string>
+    <string name="pref_hide_launcher">自啟動器隱藏</string>
+    <string name="pref_cate_about">關於</string>
+    <string name="pref_version_code">版本</string>
+
+    <!--關於頁面-->
+    <string name="about_dialog_title">關於</string>
+    <string name="about_dialog_message">點選快速設定磚以掃描相機或螢幕內的 QR 碼\n分享或開啟圖片自動掃描\n\n開放原始碼授權\nZxing:APL 2.0</string>
+    <string name="about_dialog_support">捐贈</string>
+    <string name="about_dialog_github">GitHub</string>
+    <string name="about_dialog_button">確認</string>
+
+    <string name="toast_no_wechat">無法找到 WeChat</string>
+    <string name="toast_no_alipay">無法找到支付寶</string>
+    <string name="toast_copied">複製 %s 至剪貼簿完成</string>
+    <string name="toast_no_result">無法找到 QR 碼</string>
+    <string name="toast_no_permit">遺失權限</string>
+</resources>
